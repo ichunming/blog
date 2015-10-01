@@ -1,0 +1,2 @@
+window>preferences>java>Install JREs
+remove原来的jdk,add新的jdk
