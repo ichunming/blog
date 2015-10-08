@@ -36,7 +36,7 @@ public class CharsetEncodingFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		request.setCharacterEncoding(encodeString);
-		response.setCharacterEncoding(encodeString);
+		response.setContentType("text/hmtl;charset=" + encodeString);
 		chain.doFilter(request, response);
 	}
 

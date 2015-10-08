@@ -8,7 +8,7 @@
 	</listener>
 
 	<display-name>blog</display-name>
-	<filter>
+<!-- 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>com.ichunming.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
@@ -19,7 +19,7 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
