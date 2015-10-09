@@ -17,9 +17,6 @@ public class TestController {
 	
 	@RequestMapping("/test")
 	public String viewCourse(HttpServletRequest request, HttpServletResponse response) {
-		
-		response.setContentType("text/hmtl;charset=utf-8");
-		response.setCharacterEncoding("utf-8");
 		System.out.println("Hello chunming");
 		return "index";
 	}
