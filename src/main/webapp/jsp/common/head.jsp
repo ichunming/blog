@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>春明的个人博客</title>
+<title>春明の博客</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="../css/bootstrap.min.css">
