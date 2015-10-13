@@ -28,6 +28,7 @@ public class TestController {
 		System.out.println(request.getServletContext().getContext("/").getContext("/").getContextPath());
 		System.out.println(request.getServletContext().getContextPath());
 		System.out.println(request.getServletContext().getRealPath("/"));
+		request.getSession().getServletContext().getRealPath("");
 		return "index";
 	}
 }
