@@ -28,10 +28,6 @@
 	<mvc:annotation-driven />
 
 	<!-- 静态资源处理，css,js,img -->
-	<mvc:resources location="/resources/css/" mapping="/resources/css/**"></mvc:resources>
-	<mvc:resources location="/resources/fonts/" mapping="/resources/fonts/**"></mvc:resources>
-	<mvc:resources location="/resources/img/" mapping="/resources/img/**"></mvc:resources>
-	<mvc:resources location="/resources/js/" mapping="/resources/js/**"></mvc:resources>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />

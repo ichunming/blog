@@ -16,19 +16,7 @@ public class TestController {
 	private IUserService userService;
 	
 	@RequestMapping("/test")
-	public String viewCourse(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println(request.getContextPath());
-		System.out.println(request.getRealPath("/"));
-		System.out.println(request.getPathInfo());
-		System.out.println(request.getPathTranslated());
-		System.out.println(request.getServletPath());
-		System.out.println(request.getSession().getServletContext().getContextPath());
-		System.out.println(request.getServletContext().getContext("/").getContextPath());
-		System.out.println(request.getServletContext().getContext("/").getRealPath("/"));
-		System.out.println(request.getServletContext().getContext("/").getContext("/").getContextPath());
-		System.out.println(request.getServletContext().getContextPath());
-		System.out.println(request.getServletContext().getRealPath("/"));
-		request.getSession().getServletContext().getRealPath("");
+	public String test(HttpServletRequest request, HttpServletResponse response) {
 		return "index";
 	}
 }

@@ -7,7 +7,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>com.ichunming.filter.CharsetEncodingFilter</filter-class>
@@ -28,6 +28,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.sp</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -151,7 +151,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-mybatis</finalName>
+		<finalName>blog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
