@@ -5,31 +5,23 @@
 package com.ichunming.entity;
 
 import java.util.List;
-import com.ichunming.bean.Link;
+
+import com.ichunming.bean.Status;
+import com.ichunming.bean.Tag;
 
 public class Block {
 	
-	// id
-	private String id;
 	// 类型
 	private String type;
 	// 模块名称 
 	private String name;
-	// 模块名称链接
-	private String href;
-	// 模块链接
-	private List<Link> linkList;
+	// 最新动态模块内容
+	private Status status;
+	// 标签云库模块内容
+	private List<Tag> tagList;
 	
 	// default constructor
 	public Block() {}
-	
-	// constructor with pars
-	public Block(String id, String type, String name, String href) {
-		this.id = id;
-		this.type = type;
-		this.name = name;
-		this.href = href;
-	}
 	
 	public String getName() {
 		return name;
@@ -37,28 +29,26 @@ public class Block {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHref() {
-		return href;
-	}
-	public void setHref(String href) {
-		this.href = href;
-	}
-	public List<Link> getLinkList() {
-		return linkList;
-	}
-	public void setLinkList(List<Link> linkList) {
-		this.linkList = linkList;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public List<Tag> getTagList() {
+		return tagList;
+	}
+
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
 	}
 }

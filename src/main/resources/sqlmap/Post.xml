@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ichunming.dao.IPost">
+
+  <resultMap type="Post" id="PostResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="MARK" jdbcType="CHAR" property="name"/>
+    <result column="TITLE" jdbcType="VARCHAR" property="code"/>
+    <result column="DATE_TIME" jdbcType="DATE" property="code"/>
+    <result column="AUTHOR" jdbcType="VARCHAR" property="code"/>
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="code"/>
+  </resultMap>
+
+  <select id="getNewestPost" resultMap="PostResult">
+    SELECT * FROM user WHERE 1=1
+  </select>
+  
+  <delete id="deleteUser" parameterType="int">
+  	DELETE FROM user WHERE ID=#{_parameter}
+  </delete>
+  
+  <update id="updateUser" parameterType="User">
+  	UPDATE user set NAME=#{name},CODE=#{code} where ID=#{id}
+  </update>
+  
+</mapper>

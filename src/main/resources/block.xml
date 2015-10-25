@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
 	<block>
-		<id>0</id>
 		<type>01</type>
 		<name>最新动态</name>
-		<href>localhost:8080/blog/test.sp</href>
 	</block>
-	<block>
-		<id>1</id>
+	<block_bk>
 		<type>02</type>
 		<name>生活一角</name>
-		<href>localhost:8080/blog/test.sp</href>
+	</block_bk>
+	<block>
+	<type>03</type>
+		<name>标签云库</name>
+	</block>
+		<block>
+		<type>04</type>
+		<name>推荐阅读</name>
 	</block>
 	<block>
-		<id>2</id>
-		<type>03</type>
-		<name>标签云库</name>
-		<href>localhost:8080/blog/test.sp</href>
+		<type>05</type>
+		<name>下载专区</name>
 	</block>
 </root>

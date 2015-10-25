@@ -16,4 +16,10 @@ public class AppConst {
 	
 	// 标签云库:TAGS
 	public static final String BLOCK_TAGS = "03";
+	
+	// 推荐阅读:RECOMMEND
+	public static final String BLOCK_RECOMMEND = "04";
+	
+	// 推荐阅读:DOWNLOAD
+	public static final String BLOCK_DOWNLOAD = "05";
 }

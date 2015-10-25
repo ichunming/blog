@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Post {
 	// id
-	private String id;
+	private Integer id;
 	// 推荐标记
 	private String featured;
 	// 标题
@@ -20,12 +20,12 @@ public class Post {
 	// 内容
 	private String content;
 	// 链接
-	private List<Link> linkList;
+	private List<Tag> tagList;
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFeatured() {
@@ -58,10 +58,10 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public List<Link> getLinks() {
-		return linkList;
+	public List<Tag> getTagList() {
+		return tagList;
 	}
-	public void setLinks(List<Link> linkList) {
-		this.linkList = linkList;
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
 	}
 }
