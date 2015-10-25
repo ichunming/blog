@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- start header -->
 <header class="header_img">
 	<div class="container"></div>
@@ -12,21 +12,26 @@
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#main-menu">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
 			</button>
 		</div>
 		<!-- /.navbar-header -->
 
 		<div class="collapse navbar-collapse" id="main-menu">
 			<ul class="menu">
-				<li role="presentation" class="nav-current"><a
-					href="index.html">首页</a></li>
-				<li role="presentation"><a href="learn.html">学无止境</a></li>
-				<li role="presentation"><a href="life.html">碎生活</a></li>
-				<li role="presentation"><a href="tool.html">自定义</a></li>
-				<li role="presentation"><a href="about.html">关于我</a></li>
+				<c:forEach var="menu" items="${menuManager.menuList }" varStatus="s">
+					<c:choose>
+						<c:when test="${menuManager.currentNav == s.index }">
+							<li role="presentation" class="nav-current"><a href="${menu.href }">${menu.name }</a></li>
+						</c:when>
+						<c:otherwise>
+							<li role="presentation"><a href="${menu.href }">${menu.name }</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
 			</ul>
 		</div>
 		<!-- /.collapse -->
