@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<menu>
+		<id>0</id>
+		<name>首页</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</menu>
+	<menu>
+		<id>1</id>
+		<name>学无止境</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</menu>
+	<menu>
+		<id>2</id>
+		<name>碎生活</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</menu>
+	<menu>
+		<id>3</id>
+		<name>自定义</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</menu>
+	<menu>
+		<id>4</id>
+		<name>关于我</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</menu>
+</root>

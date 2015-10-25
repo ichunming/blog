@@ -20,16 +20,19 @@ public class BlockManager {
 	
 	// 取得 最新动态 模块
 	public Block getBlockEveryday() {
-		return blockMap.get(AppConst.BLOCK_EVERYDAY);
+		Block blockEveryday = null;
+		return blockMap != null?blockMap.get(AppConst.BLOCK_EVERYDAY):null;
 	}
 	
 	// 取得 生活一角 模块
 	public Block getBlockPartLife() {
-		return blockMap.get(AppConst.BLOCK_PART_LIFE);
+		return blockMap != null?blockMap.get(AppConst.BLOCK_PART_LIFE):null;
 	}
 	
 	// 取得 标签云库 模块
 	public Block getBlockTags() {
-		return blockMap.get(AppConst.BLOCK_TAGS);
+		return blockMap != null?blockMap.get(AppConst.BLOCK_TAGS):null;
 	}
+	
+	// 取得
 }

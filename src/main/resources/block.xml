@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<block>
+		<id>0</id>
+		<type>01</type>
+		<name>最新动态</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</block>
+	<block>
+		<id>1</id>
+		<type>02</type>
+		<name>生活一角</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</block>
+	<block>
+		<id>2</id>
+		<type>03</type>
+		<name>标签云库</name>
+		<href>localhost:8080/blog/test.sp</href>
+	</block>
+</root>
