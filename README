@@ -1,0 +1,13 @@
+# blog
+
+## 概要说明
+    个人博客
+    1.记录,整理技术文档
+    2.记录个人生活
+
+## 版本库地址
+* HTTP协议: `https://github.com/ichunming/blog.git`
+* SSH协议: `git@github.com:ichunming/blog.git`
+
+## 克隆版本库
+    操作示例：`$ git clone git@github.com:ichunming/blog.git`
