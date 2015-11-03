@@ -11,3 +11,4 @@
 
 ## 克隆版本库
     操作示例：`$ git clone git@github.com:ichunming/blog.git`
+##### PS：Maven工程，需要先配好Maven环境
