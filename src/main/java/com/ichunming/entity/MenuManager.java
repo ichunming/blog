@@ -10,7 +10,7 @@ public class MenuManager {
 	// 菜单List
 	private List<Menu> menuList;
 	// 当前活动菜单项
-	private String currentNav;
+	private int currentNav;
 	
 	public List<Menu> getMenuList() {
 		return menuList;
@@ -18,10 +18,10 @@ public class MenuManager {
 	public void setMenuList(List<Menu> menuList) {
 		this.menuList = menuList;
 	}
-	public String getCurrentNav() {
+	public int getCurrentNav() {
 		return currentNav;
 	}
-	public void setCurrentNav(String currentNav) {
+	public void setCurrentNav(int currentNav) {
 		this.currentNav = currentNav;
 	}
 }

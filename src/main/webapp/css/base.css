@@ -83,12 +83,14 @@ a img {
   height: 40px;
   line-height: 54px;
   -webkit-transform: rotate(45deg);
+	 -moz-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
        -o-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 .post .featured span {
   -webkit-transform: rotate(-45deg);
+	 -moz-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
        -o-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -156,6 +158,9 @@ a img {
 	pagenav
 ====================================================*/
 .pagenav {
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
   margin: 0 0 35px;
   text-align: center;
   display: block;
@@ -272,6 +277,7 @@ a img {
   display: inline-block;
   margin: 0 7px 7px 0;
   -webkit-transition: all 0.2s ease;
+	 -moz-transition: all 0.2s ease;
        -o-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }

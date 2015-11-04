@@ -5,11 +5,15 @@
 
 <configuration>
   <typeAliases>
-    <typeAlias alias="User" type="com.ichunming.bean.User"/>
+    <typeAlias alias="Post" type="com.ichunming.bean.Post"/>
+    <typeAlias alias="Link" type="com.ichunming.bean.Link"/>
+    <typeAlias alias="Status" type="com.ichunming.bean.Status"/>
   </typeAliases>
   
   <mappers>
-    <mapper resource="sqlmap/User.xml"/>
+    <mapper resource="sqlmap/Post.xml"/>
+    <mapper resource="sqlmap/Link.xml"/>
+    <mapper resource="sqlmap/Status.xml"/>
   </mappers>
 
 </configuration>

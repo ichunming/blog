@@ -20,7 +20,6 @@ public class BlockManager {
 	
 	// 取得 最新动态 模块
 	public Block getBlockEveryday() {
-		//Block blockEveryday = null;
 		return blockMap != null?blockMap.get(AppConst.BLOCK_EVERYDAY):null;
 	}
 	

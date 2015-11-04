@@ -7,23 +7,22 @@
 
   <resultMap type="Post" id="PostResult">
     <id column="ID" jdbcType="INTEGER" property="id"/>
-    <result column="MARK" jdbcType="CHAR" property="name"/>
-    <result column="TITLE" jdbcType="VARCHAR" property="code"/>
-    <result column="DATE_TIME" jdbcType="DATE" property="code"/>
-    <result column="AUTHOR" jdbcType="VARCHAR" property="code"/>
-    <result column="CONTENT" jdbcType="LONGVARCHAR" property="code"/>
+    <result column="FEATURED" jdbcType="CHAR" property="featured"/>
+    <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+    <result column="DATE_TIME" jdbcType="DATE" property="dateTime"/>
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author"/>
+    <result column="INTRODUCE" jdbcType="VARCHAR" property="introduce"/>
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content"/>
+    <collection property="tagList" resultMap="com.ichunming.dao.ILink.LinkResult"/>
   </resultMap>
 
-  <select id="getNewestPost" resultMap="PostResult">
-    SELECT * FROM user WHERE 1=1
+  <select id="getNewestPosts" parameterType="java.util.Map" resultMap="PostResult">
+	SELECT a.ID ID,a.FEATURED,a.TITLE,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME,a.AUTHOR,a.INTRODUCE,b.ID LINK_ID,b.TYPE,b.CONTENT LINK_CONTENT,b.HREF 
+    FROM
+    (SELECT d.ID ID,d.FEATURED,d.TITLE,d.DATE_TIME,d.AUTHOR,d.INTRODUCE
+    FROM post d 
+    ORDER BY DATE_TIME DESC LIMIT #{start, jdbcType=INTEGER},#{count, jdbcType=INTEGER}) a
+    LEFT JOIN post_link e ON a.ID = e.POST_ID
+    LEFT JOIN link b ON e.LINK_ID = b.ID AND b.TYPE = #{type, jdbcType=CHAR}
   </select>
-  
-  <delete id="deleteUser" parameterType="int">
-  	DELETE FROM user WHERE ID=#{_parameter}
-  </delete>
-  
-  <update id="updateUser" parameterType="User">
-  	UPDATE user set NAME=#{name},CODE=#{code} where ID=#{id}
-  </update>
-  
 </mapper>

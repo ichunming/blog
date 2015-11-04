@@ -4,18 +4,22 @@
  */
 package com.ichunming.bean;
 
+import java.util.List;
+
 public class Link {
 	// id
-	private String id;
+	private Integer id;
+	// 类型
+	private String type;
 	// 链接内容
 	private String content;
-	// 链接地址
-	private String href;
+	// 文章List
+	private List<Post> postList;
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getContent() {
@@ -24,10 +28,16 @@ public class Link {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getHref() {
-		return href;
+	public String getType() {
+		return type;
 	}
-	public void setHref(String href) {
-		this.href = href;
+	public void setType(String type) {
+		this.type = type;
+	}
+	public List<Post> getPostList() {
+		return postList;
+	}
+	public void setPostList(List<Post> postList) {
+		this.postList = postList;
 	}
 }

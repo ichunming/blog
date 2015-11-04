@@ -22,4 +22,19 @@ public class AppConst {
 	
 	// 推荐阅读:DOWNLOAD
 	public static final String BLOCK_DOWNLOAD = "05";
+	
+	/**
+	 * 菜单活动项常量
+	 */
+	// index
+	public static final int MENU_INDEX = 0;
+	
+	// learn
+	public static final int MENU_LEARN = 1;
+	
+	// life
+	public static final int MENU_LIFE = 2;
+	
+	// about
+	public static final int MENU_ABOUT = 3;
 }

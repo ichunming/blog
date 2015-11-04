@@ -17,10 +17,12 @@ public class Post {
 	private String author;
 	// 日期时间
 	private String dateTime;
+	// 简介
+	private String introduce;
 	// 内容
 	private String content;
 	// 链接
-	private List<Tag> tagList;
+	private List<Link> tagList;
 	
 	public Integer getId() {
 		return id;
@@ -58,10 +60,16 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public List<Tag> getTagList() {
+	public List<Link> getTagList() {
 		return tagList;
 	}
-	public void setTagList(List<Tag> tagList) {
+	public void setTagList(List<Link> tagList) {
 		this.tagList = tagList;
+	}
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
 	}
 }

@@ -7,7 +7,7 @@ package com.ichunming.entity;
 import java.util.List;
 
 import com.ichunming.bean.Status;
-import com.ichunming.bean.Tag;
+import com.ichunming.bean.Link;
 
 public class Block {
 	
@@ -18,7 +18,7 @@ public class Block {
 	// 最新动态模块内容
 	private Status status;
 	// 标签云库模块内容
-	private List<Tag> tagList;
+	private List<Link> tagList;
 	
 	// default constructor
 	public Block() {}
@@ -44,11 +44,11 @@ public class Block {
 		this.status = status;
 	}
 
-	public List<Tag> getTagList() {
+	public List<Link> getTagList() {
 		return tagList;
 	}
 
-	public void setTagList(List<Tag> tagList) {
+	public void setTagList(List<Link> tagList) {
 		this.tagList = tagList;
 	}
 }
