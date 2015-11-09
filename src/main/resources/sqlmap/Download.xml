@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ichunming.dao.IDownload">
+
+  <resultMap type="Download" id="DownloadResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+    <result column="HREF" jdbcType="VARCHAR" property="href"/>
+    <result column="DOWNLOAD_COUNT" jdbcType="INTEGER" property="downloadCount"/>
+    <result column="DATE_TIME" jdbcType="DATE" property="dateTime"/>
+  </resultMap>
+  
+  <!-- 检索下载列表 -->
+  <select id="getDownloadList" resultMap="DownloadResult">
+	SELECT a.ID,a.CONTENT,a.HREF,a.DOWNLOAD_COUNT,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME
+    FROM download a 
+    ORDER BY DATE_TIME DESC
+  </select>
+  
+  <!-- 检索最新下载列表-->
+  <select id="getNewestDownloadList" parameterType="java.lang.Integer" resultMap="DownloadResult">
+	SELECT a.ID,a.CONTENT,a.HREF
+    FROM download a 
+    ORDER BY DATE_TIME DESC LIMIT 0,#{_parameter}
+  </select>
+</mapper>

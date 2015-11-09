@@ -6,8 +6,10 @@ package com.ichunming.entity;
 
 import java.util.List;
 
+import com.ichunming.bean.Download;
+import com.ichunming.bean.Post;
 import com.ichunming.bean.Status;
-import com.ichunming.bean.Link;
+import com.ichunming.bean.Tag;
 
 public class Block {
 	
@@ -17,8 +19,12 @@ public class Block {
 	private String name;
 	// 最新动态模块内容
 	private Status status;
+	// 推荐阅读模块内容
+	private List<Post> postList;
 	// 标签云库模块内容
-	private List<Link> tagList;
+	private List<Tag> tagList;
+	// 下载专区模块内容
+	private List<Download> downloadList;
 	
 	// default constructor
 	public Block() {}
@@ -44,11 +50,27 @@ public class Block {
 		this.status = status;
 	}
 
-	public List<Link> getTagList() {
+	public List<Tag> getTagList() {
 		return tagList;
 	}
 
-	public void setTagList(List<Link> tagList) {
+	public void setTagList(List<Tag> tagList) {
 		this.tagList = tagList;
+	}
+
+	public List<Post> getPostList() {
+		return postList;
+	}
+
+	public void setPostList(List<Post> postList) {
+		this.postList = postList;
+	}
+
+	public List<Download> getDownloadList() {
+		return downloadList;
+	}
+
+	public void setDownloadList(List<Download> downloadList) {
+		this.downloadList = downloadList;
 	}
 }

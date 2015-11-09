@@ -1,5 +1,5 @@
 /**
- * 首页访问
+ * Post Service接口
  * 2015/10/29
  */
 package com.ichunming.iservice;
@@ -7,8 +7,12 @@ package com.ichunming.iservice;
 import java.util.List;
 
 import com.ichunming.bean.Post;
+import com.ichunming.entity.Page;
 
 public interface IPostService {
-	// 取得最新文章
-	public List<Post> findNewestPosts();
+	// 取得文章总条数
+	public int findTotalNumber();
+	
+	// 取得文章
+	public List<Post> findPosts(Page page);
 }

@@ -41,13 +41,17 @@
 				</article>
 			</c:forEach>
 			
-			<nav class="pagenav" role="navigation">
-       			<a class="newer-posts" href="learn_article.html">
-					<span class="glyphicon glyphicon-menu-left"></span></a>
-   				<span class="page-number">第 2 页 &frasl; 共 7 页</span>
-       			<a class="older-posts" href="#">
-					<span class="glyphicon glyphicon-menu-right"></span></a>				
-			</nav>
+			<c:if test="${page.totalNumber > 0 }">
+				<nav class="pagenav" role="navigation">
+					<c:if test="${page.currentPage != 1 }">
+						<a class="newer-posts" href="learn?currentPage=${page.currentPage - 1 }"><span class="glyphicon glyphicon-menu-left"></span></a>
+					</c:if>
+	   				<span class="page-number">第 ${page.currentPage } 页 &frasl; 共 ${page.totalPage } 页</span>
+					<c:if test="${page.currentPage != page.totalPage }">
+						<a class="older-posts" href="learn?currentPage=${page.currentPage + 1 }"><span class="glyphicon glyphicon-menu-right"></span></a>	
+					</c:if>	
+				</nav>
+			</c:if>
 		</section>
 		<%@ include file="../common/learn_aside.jsp"%>
 	</div>

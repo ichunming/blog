@@ -7,10 +7,10 @@
 						<a href="learn/recommend.sp"><c:out value="${blockManager.blockRecommend.name }" /></a>
 					</h4>
 					<div class="content">
-						<c:forEach var="recommend" items="${blockManager.blockRecommend.recommendList }">
+						<c:forEach var="post" items="${blockManager.blockRecommend.postList }">
 							<p>
-								<a href="learn/recommend.sp?recommendId=${recommend.id }">
-									<c:out value="${recommend.title }"></c:out>
+								<a href="learn/recommend.sp?postId=${post.id }">
+									<c:out value="${post.title }"></c:out>
 								</a>
 							</p>
 						</c:forEach>

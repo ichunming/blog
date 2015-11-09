@@ -27,4 +27,14 @@ public class BlockManager {
 	public Block getBlockTags() {
 		return blockMap != null?blockMap.get(AppConst.BLOCK_TAGS):null;
 	}
+	
+	// 取得 推荐阅读 模块
+	public Block getBlockRecommend() {
+		return blockMap != null?blockMap.get(AppConst.BLOCK_RECOMMEND):null;
+	}
+	
+	// 取得 下载专区 模块
+	public Block getBlockDownload() {
+		return blockMap != null?blockMap.get(AppConst.BLOCK_DOWNLOAD):null;
+	}
 }

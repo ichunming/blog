@@ -21,8 +21,8 @@ public class Post {
 	private String introduce;
 	// 内容
 	private String content;
-	// 链接
-	private List<Link> tagList;
+	// 标签
+	private List<Tag> tagList;
 	
 	public Integer getId() {
 		return id;
@@ -60,10 +60,10 @@ public class Post {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public List<Link> getTagList() {
+	public List<Tag> getTagList() {
 		return tagList;
 	}
-	public void setTagList(List<Link> tagList) {
+	public void setTagList(List<Tag> tagList) {
 		this.tagList = tagList;
 	}
 	public String getIntroduce() {

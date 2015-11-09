@@ -1,5 +1,5 @@
 /**
- * 首页访问
+ * Post Service
  * 2015/10/29 chunming
  */
 package com.ichunming.service;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ichunming.bean.Post;
-import com.ichunming.consts.BizConst;
+import com.ichunming.entity.Page;
 import com.ichunming.idao.IPostDao;
 import com.ichunming.iservice.IPostService;
 
@@ -20,13 +20,23 @@ public class PostService implements IPostService {
 	IPostDao postDao;
 	
 	/**
-	 * 获取最新PAGE_POST_COUNT篇文章
-	 * return:List<Post>
+	 * 获取文章
+	 * parameter: 分页对象page
+	 * return: List<Post>
 	 */
 	@Override
-	public List<Post> findNewestPosts() {
-		// 取得最新PAGE_POST_COUNT篇文章
-		return postDao.getNewestPosts(0, BizConst.PAGE_POST_COUNT, BizConst.POST_TYPE_FEATURED);
+	public List<Post> findPosts(Page page) {
+		// 取得文章
+		return postDao.getPosts(page);
 	}
-	
+
+	/**
+	 * 获取文章总条数
+	 * return: int
+	 */
+	@Override
+	public int findTotalNumber() {
+		// 文章总条数
+		return postDao.getTotalNumber();
+	}
 }
