@@ -4,12 +4,12 @@
 			<c:if test="${blockManager.blockRecommend != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="learn/recommend.sp"><c:out value="${blockManager.blockRecommend.name }" /></a>
+						<a href="learn.sp"><c:out value="${blockManager.blockRecommend.name }" /></a>
 					</h4>
 					<div class="content">
 						<c:forEach var="post" items="${blockManager.blockRecommend.postList }">
 							<p>
-								<a href="learn/recommend.sp?postId=${post.id }">
+								<a href="learn/article.sp?postId=${post.id }">
 									<c:out value="${post.title }"></c:out>
 								</a>
 							</p>

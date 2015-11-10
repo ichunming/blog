@@ -25,7 +25,7 @@
 			<c:if test="${blockManager.blockTags != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="lean/tag.sp"><c:out value="${blockManager.blockTags.name }" /></a>
+						<a href="learn/tag.sp"><c:out value="${blockManager.blockTags.name }" /></a>
 					</h4>
 					<div class="content tag-cloud">
 						<c:forEach var="tag" items="${blockManager.blockTags.tagList }">
