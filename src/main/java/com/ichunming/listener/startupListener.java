@@ -52,6 +52,7 @@ public class startupListener implements ServletContextListener {
     	System.out.println("应用程序启动...");
     	// 获取应用程序上下文
     	webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletcontextevent.getServletContext());
+    	String appPath = webApplicationContext.getServletContext().getContextPath();
     	XMLUtil xmlUtil = new XMLUtil();
     	// load menu
     	List<Menu> menuList = xmlUtil.loadXML(this.getClass().getClassLoader().getResource("menu.xml").getPath(), Menu.class);
@@ -72,7 +73,8 @@ public class startupListener implements ServletContextListener {
     	}
     	BlockManager blockManager = new BlockManager();
     	blockManager.setBlockMap(blockMap);
-    	// 保存block,menu
+    	// 保存appPath,block,menu
+    	servletcontextevent.getServletContext().setAttribute("appPath", appPath);
     	servletcontextevent.getServletContext().setAttribute("menuManager", menuManager);
     	servletcontextevent.getServletContext().setAttribute("blockManager", blockManager);
     }

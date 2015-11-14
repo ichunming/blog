@@ -39,4 +39,24 @@ public class PostService implements IPostService {
 		// 文章总条数
 		return postDao.getTotalNumber();
 	}
+
+	/**
+	 * 根据ID取得当前文章及其前后
+	 * parameter: id 文章ID
+	 * return: post
+	 */
+	@Override
+	public List<Post> findPostsById(int id) {
+		return postDao.getPostsById(id);
+	}
+
+	/**
+	 * 根据ID取得推荐文章及其前后
+	 * parameter: id 文章ID
+	 * return: post
+	 */
+	@Override
+	public List<Post> findRecommendPostsById(int id) {
+		return postDao.getRecommendPostsById(id);
+	}
 }

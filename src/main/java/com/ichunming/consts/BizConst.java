@@ -6,8 +6,11 @@ package com.ichunming.consts;
 
 public class BizConst {
 	
-	// 每页文章数
-	public static final int PAGE_POST_COUNT = 8;
+	// learn模块每页文章数
+	public static final int LEARN_PAGE_POST_COUNT = 8;
+	
+	// home模块每页文章数
+	public static final int HOME_PAGE_POST_COUNT = 5;
 	
 	// 推荐文章
 	public static final String POST_TYPE_FEATURED = "1";

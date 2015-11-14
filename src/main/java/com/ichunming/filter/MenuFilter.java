@@ -46,7 +46,7 @@ public class MenuFilter implements Filter {
 		// 取得menu
 		ServletContext servletContext = request.getServletContext();
 		MenuManager menuManager = (MenuManager)servletContext.getAttribute("menuManager");
-		if(URL.contains("index")) {
+		if(URL.contains("home")) {
 			// index
 			menuManager.setCurrentNav(AppConst.MENU_INDEX);
 		} else if (URL.contains("learn")) {

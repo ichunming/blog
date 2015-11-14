@@ -16,7 +16,12 @@ public interface IPostDao {
 	// 取得文章总条数
 	public int getTotalNumber();
 	
-	// 取得文章
+	// 取得分页文章
 	public List<Post> getPosts(Page page);
 	
+	// 根据ID取得当前文章及其前后
+	public List<Post> getPostsById(int id);
+	
+	// 根据ID取得当前推荐文章及前后
+	public List<Post> getRecommendPostsById(int id);
 }

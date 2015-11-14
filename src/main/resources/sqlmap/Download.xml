@@ -17,13 +17,13 @@
   <select id="getDownloadList" resultMap="DownloadResult">
 	SELECT a.ID,a.CONTENT,a.HREF,a.DOWNLOAD_COUNT,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME
     FROM download a 
-    ORDER BY DATE_TIME DESC
+    ORDER BY ID DESC
   </select>
   
   <!-- 检索最新下载列表-->
   <select id="getNewestDownloadList" parameterType="java.lang.Integer" resultMap="DownloadResult">
 	SELECT a.ID,a.CONTENT,a.HREF
     FROM download a 
-    ORDER BY DATE_TIME DESC LIMIT 0,#{_parameter}
+    ORDER BY ID DESC LIMIT 0,#{_parameter}
   </select>
 </mapper>

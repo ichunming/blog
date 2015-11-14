@@ -24,17 +24,38 @@
     FROM post d 
     <where>
     	<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
-    		and d.FEATURED = #{featured}
+    		AND d.FEATURED = #{featured}
     	</if>
     </where>
-    ORDER BY DATE_TIME DESC LIMIT #{dbIndex},#{dbNumber}) a
+    ORDER BY ID DESC LIMIT #{dbIndex},#{dbNumber}) a
     LEFT JOIN post_tag e ON a.ID = e.POST_ID
     LEFT JOIN tag b ON e.TAG_ID = b.ID
+    ORDER BY ID DESC
   </select>
   
   <!-- 检索文章总件数 -->
   <select id="getTotalNumber" resultType="Integer">
 	SELECT COUNT(1)
     FROM post
+  </select>
+  
+  <!-- 检索文章 -->
+  <select id="getPostsById" parameterType="java.util.Map" resultMap="PostResult">
+	SELECT a.ID ID,a.FEATURED,a.TITLE,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME,a.AUTHOR,a.INTRODUCE,b.ID TAG_ID,b.CONTENT TAG_CONTENT
+    FROM
+    (SELECT d.ID ID,d.FEATURED,d.TITLE,d.DATE_TIME,d.AUTHOR,d.INTRODUCE
+    FROM post d 
+    <where>
+    	d.ID = #{id, jdbcType=INTEGER}
+		OR d.ID = (SELECT ID FROM post f WHERE f.ID &lt; #{id, jdbcType=INTEGER} ORDER BY f.ID DESC LIMIT 0,1)
+    	OR d.ID = (SELECT ID FROM post g WHERE g.ID &gt; #{id, jdbcType=INTEGER} ORDER BY g.ID LIMIT 0,1)
+    	<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
+    		AND d.FEATURED = #{featured, jdbcType=CHAR}
+    	</if>
+    </where>
+    ) a
+    LEFT JOIN post_tag e ON a.ID = e.POST_ID
+    LEFT JOIN tag b ON e.TAG_ID = b.ID
+    ORDER BY ID DESC
   </select>
 </mapper>

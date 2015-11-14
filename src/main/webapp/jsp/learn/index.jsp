@@ -13,15 +13,15 @@
 				<article class="post">
 					<c:if test="${post.featured == '1' }">
 						<div class="featured" title="推荐文章">
-							<span class="glyphicon glyphicon-star"></span>
+							&nbsp;<span class="glyphicon glyphicon-star" aria-hidden="true"></span>&nbsp;
 						</div>
 					</c:if>
 					<div class="post-head">
 						<h3 class="post-title">
-							<a href="learn/article.sp?postId=${post.id }"><c:out value="${post.title }" /></a>
+							<a href="${appPath }/learn/article.sp?postId=${post.id }"><c:out value="${post.title }" /></a>
 						</h3>
 						<div class="post-meta">
-							<span class="author">&bull;&nbsp;<c:out value="${post.dateTime }" />&nbsp;&nbsp;|&nbsp;&nbsp;<c:out value="${post.author }" /></span>
+							<span class="author">&bull;<c:out value="${post.dateTime }" />&nbsp;|&nbsp;<c:out value="${post.author }" /></span>
 						</div>
 					</div>
 	
@@ -33,7 +33,7 @@
 							<div class="pull-left tag-list">
 								<span class="glyphicon glyphicon-link"></span>
 								<c:forEach var="tag" items="${post.tagList }">
-									<a href="learn/tag.sp?tagId=${tag.id }"><c:out value="${tag.content }" /></a>&nbsp;&nbsp;
+									<a href="${appPath }/learn/tag.sp?tagId=${tag.id }"><c:out value="${tag.content }" /></a>
 								</c:forEach>
 							</div>
 						</footer>
@@ -44,11 +44,11 @@
 			<c:if test="${page.totalNumber > 0 }">
 				<nav class="pagenav" role="navigation">
 					<c:if test="${page.currentPage != 1 }">
-						<a class="newer-posts" href="learn?currentPage=${page.currentPage - 1 }"><span class="glyphicon glyphicon-menu-left"></span></a>
+						<a class="newer-posts" href="${appPath }/learn/index?currentPage=${page.currentPage - 1 }"><span class="glyphicon glyphicon-menu-left"></span></a>
 					</c:if>
 	   				<span class="page-number">第 ${page.currentPage } 页 &frasl; 共 ${page.totalPage } 页</span>
 					<c:if test="${page.currentPage != page.totalPage }">
-						<a class="older-posts" href="learn?currentPage=${page.currentPage + 1 }"><span class="glyphicon glyphicon-menu-right"></span></a>	
+						<a class="older-posts" href="${appPath }/learn/index?currentPage=${page.currentPage + 1 }"><span class="glyphicon glyphicon-menu-right"></span></a>	
 					</c:if>	
 				</nav>
 			</c:if>

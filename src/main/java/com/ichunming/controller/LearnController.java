@@ -14,16 +14,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ichunming.bean.Post;
+import com.ichunming.entity.Article;
 import com.ichunming.entity.Page;
 import com.ichunming.iservice.IPostService;
 
 @Controller
-@RequestMapping("blog")
+@RequestMapping("/")
 public class LearnController {
 	@Autowired
 	private IPostService postService;
 	
-	@RequestMapping("/learn")
+	@RequestMapping("learn")
 	public String learn(HttpServletRequest request, Model model) {
 		// 获取参数
 		String curPageStr = request.getParameter("currentPage");
@@ -53,6 +54,67 @@ public class LearnController {
 		// 保存分页对象
 		model.addAttribute(page);
 		// 返回页面
-		return "learn/learn";
+		return "learn/index";
+	}
+
+	@RequestMapping("learn/article")
+	public String article(HttpServletRequest request, Model model) {
+		// 返回值
+		Article article = null;
+		List<Post> postList = null;
+		
+		// 获取参数
+		String postIdStr = request.getParameter("postId");
+		Integer postId = null;
+		if(null != postIdStr) {
+			try {
+				postId = Integer.parseInt(postIdStr);
+			} catch(Exception e) {
+				postId = null;
+			}
+		}
+
+		// 参数check
+		if(null == postId) {
+			article = getErrorArticle();
+			model.addAttribute(article);
+			return "learn/article";
+		}
+		
+		// 取得文章
+		postList = postService.findPostsById(postId);
+		// 取得值check
+		if(null == postList || 0 == postList.size()) {
+			article = getErrorArticle();
+			model.addAttribute(article);
+			return "learn/article";
+		}
+		// 设定返回值
+		article = new Article();
+		for(Post post : postList) {
+			if(post.getId() == postId) {
+				article.setPost(post);
+			}else if(post.getId() < postId) {
+				article.setPreId(post.getId());
+				article.setPreTitle(post.getTitle());
+			}else {
+				article.setNextId(post.getId());
+				article.setNextTitle(post.getTitle());
+			}
+		}
+		// 保存取得结果
+		model.addAttribute(article);
+		// 返回页面
+		return "learn/article";
+	}
+	
+	private Article getErrorArticle() {
+		Post post = new Post();
+		Article article = new Article();
+		
+		post.setTitle("请求出错！");
+		article.setPost(post);
+		
+		return article;
 	}
 }

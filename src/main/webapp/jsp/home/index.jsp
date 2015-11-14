@@ -18,10 +18,10 @@
 					</c:if>
 					<div class="post-head">
 						<h3 class="post-title">
-							<a href="learn/article.sp?postId=${post.id }"><c:out value="${post.title }" /></a>
+							<a href="${appPath }/learn/article.sp?postId=${post.id }"><c:out value="${post.title }" /></a>
 						</h3>
 						<div class="post-meta">
-							<span class="author">&bull;&nbsp;<c:out value="${post.dateTime }" />&nbsp;&nbsp;|&nbsp;&nbsp;<c:out value="${post.author }" /></span>
+							<span class="author">&bull;<c:out value="${post.dateTime }" />&nbsp;|&nbsp;<c:out value="${post.author }" /></span>
 						</div>
 					</div>
 	
@@ -33,7 +33,7 @@
 							<div class="pull-left tag-list">
 								<span class="glyphicon glyphicon-link"></span>
 								<c:forEach var="tag" items="${post.tagList }">
-									<a href="learn/tag.sp?tagId=${tag.id }"><c:out value="${tag.content }" /></a>
+									<a href="${appPath }/learn/tag.sp?tagId=${tag.id }"><c:out value="${tag.content }" /></a>
 								</c:forEach>
 							</div>
 						</footer>
@@ -41,7 +41,7 @@
 				</article>
 			</c:forEach>
 		</section>
-		<%@ include file="../common/index_aside.jsp"%>
+		<%@ include file="../common/home_aside.jsp"%>
 	</div>
 	<%@ include file="../common/foot.jsp"%>
 </body>

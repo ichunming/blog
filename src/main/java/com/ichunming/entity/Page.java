@@ -14,7 +14,7 @@ public class Page {
 	// 当前页
 	private int currentPage;
 	// 每页显示条数
-	private int pageNumber = BizConst.PAGE_POST_COUNT;
+	private int pageNumber = BizConst.LEARN_PAGE_POST_COUNT;
 	// 数据库中limit参数，从第几条开始取
 	private int dbIndex;
 	// 数据库中limit参数，一共多少条
@@ -28,7 +28,7 @@ public class Page {
 	public void count() {
 		// 总页数
 		if(this.pageNumber <= 0) {
-			this.pageNumber = BizConst.PAGE_POST_COUNT;
+			this.pageNumber = BizConst.LEARN_PAGE_POST_COUNT;
 		}
 		// 页面增量
 		int plus = (this.totalNumber % this.pageNumber) == 0?0:1;
