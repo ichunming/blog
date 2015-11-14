@@ -16,8 +16,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import com.ichunming.common.MenuManager;
 import com.ichunming.consts.AppConst;
-import com.ichunming.entity.MenuManager;
 
 /**
  * Servlet Filter implementation class MenuFilter

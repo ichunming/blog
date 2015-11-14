@@ -2,9 +2,11 @@
  * 菜单管理类
  * 2015/10/24 chunming
  */
-package com.ichunming.entity;
+package com.ichunming.common;
 
 import java.util.List;
+
+import com.ichunming.entity.Menu;
 
 public class MenuManager {
 	// 菜单List

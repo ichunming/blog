@@ -19,12 +19,13 @@ import com.ichunming.bean.Download;
 import com.ichunming.bean.Post;
 import com.ichunming.bean.Status;
 import com.ichunming.bean.Tag;
+import com.ichunming.common.BlockManager;
+import com.ichunming.common.MenuManager;
+import com.ichunming.common.MessageManager;
 import com.ichunming.consts.AppConst;
 import com.ichunming.consts.BizConst;
 import com.ichunming.entity.Block;
-import com.ichunming.entity.BlockManager;
 import com.ichunming.entity.Menu;
-import com.ichunming.entity.MenuManager;
 import com.ichunming.entity.Page;
 import com.ichunming.iservice.IDownloadService;
 import com.ichunming.iservice.IPostService;
@@ -77,6 +78,9 @@ public class startupListener implements ServletContextListener {
     	servletcontextevent.getServletContext().setAttribute("appPath", appPath);
     	servletcontextevent.getServletContext().setAttribute("menuManager", menuManager);
     	servletcontextevent.getServletContext().setAttribute("blockManager", blockManager);
+    	
+    	// load message
+    	MessageManager.loadMessage(this.getClass().getClassLoader().getResource("message.properties").getPath());
     }
     
     /**

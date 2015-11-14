@@ -2,11 +2,12 @@
  * Block 模块管理类
  * 2015/10/20 chunming
  */
-package com.ichunming.entity;
+package com.ichunming.common;
 
 import java.util.Map;
 
 import com.ichunming.consts.AppConst;
+import com.ichunming.entity.Block;
 
 public class BlockManager {
 	

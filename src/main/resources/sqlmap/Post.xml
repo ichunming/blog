@@ -39,11 +39,11 @@
     FROM post
   </select>
   
-  <!-- 检索文章 -->
+  <!-- 检索文章内容 -->
   <select id="getPostsById" parameterType="java.util.Map" resultMap="PostResult">
-	SELECT a.ID ID,a.FEATURED,a.TITLE,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME,a.AUTHOR,a.INTRODUCE,b.ID TAG_ID,b.CONTENT TAG_CONTENT
+	SELECT a.ID ID,a.FEATURED,a.TITLE,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME,a.AUTHOR,a.INTRODUCE,a.CONTENT,b.ID TAG_ID,b.CONTENT TAG_CONTENT
     FROM
-    (SELECT d.ID ID,d.FEATURED,d.TITLE,d.DATE_TIME,d.AUTHOR,d.INTRODUCE
+    (SELECT d.ID ID,d.FEATURED,d.TITLE,d.DATE_TIME,d.AUTHOR,d.INTRODUCE,CASE d.ID WHEN #{id, jdbcType=INTEGER} THEN d.CONTENT ELSE NULL END CONTENT
     FROM post d 
     <where>
     	d.ID = #{id, jdbcType=INTEGER}

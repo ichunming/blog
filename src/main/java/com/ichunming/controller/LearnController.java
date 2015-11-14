@@ -14,7 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ichunming.bean.Post;
+import com.ichunming.common.MessageManager;
+import com.ichunming.consts.AppConst;
 import com.ichunming.entity.Article;
+import com.ichunming.entity.CustomError;
 import com.ichunming.entity.Page;
 import com.ichunming.iservice.IPostService;
 
@@ -76,17 +79,17 @@ public class LearnController {
 
 		// 参数check
 		if(null == postId) {
-			article = getErrorArticle();
-			model.addAttribute(article);
+			CustomError error = errorProc();
+			model.addAttribute("error", error);
 			return "learn/article";
 		}
 		
 		// 取得文章
 		postList = postService.findPostsById(postId);
 		// 取得值check
-		if(null == postList || 0 == postList.size()) {
-			article = getErrorArticle();
-			model.addAttribute(article);
+		if(null == postList || 0 == postList.size() || (1 == postList.size() && postId != postList.get(0).getId())) {
+			CustomError error = errorProc();
+			model.addAttribute("error", error);
 			return "learn/article";
 		}
 		// 设定返回值
@@ -103,18 +106,16 @@ public class LearnController {
 			}
 		}
 		// 保存取得结果
-		model.addAttribute(article);
+		model.addAttribute("article", article);
 		// 返回页面
 		return "learn/article";
 	}
 	
-	private Article getErrorArticle() {
-		Post post = new Post();
-		Article article = new Article();
+	private CustomError errorProc() {
+		CustomError error = new CustomError();
+		error.setCode(AppConst.CODE_WARING);
+		error.setMessage(MessageManager.findMessage("W001"));
 		
-		post.setTitle("请求出错！");
-		article.setPost(post);
-		
-		return article;
+		return error;
 	}
 }

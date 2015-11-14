@@ -137,7 +137,6 @@ a img {
 /*=======post-footer=======*/
 .post .post-footer {
   margin-top: 0px;
-  border-top: 1px solid #ebebeb;
   padding: 10px 0 0;
 }
 .post .post-footer span {
@@ -145,15 +144,29 @@ a img {
   white-space: nowrap;
 }
 .post .post-footer .tag-list {
+  margin: 10px 0 10px 0;
   color: #959595;
   line-height: 28px;
 }
 .post .post-footer .tag-list a {
   color: #959595;
-  margin-left: 7px;
+  display: inline-block;
+  margin-right: 7px;
 }
 .post .post-footer .tag-list a:hover {
   color: #009933;
+}
+.post .post-footer .pre-next {
+  margin: 15px 0 15px 0;
+  clear: both;
+  color: #959595;
+}
+.post .post-footer .pre-next a{
+  margin-left: 4px;
+}
+.sold-line{
+  clear: both;
+  border-top: 1px solid #ebebeb;
 }
 /*====================================================
 	pagenav

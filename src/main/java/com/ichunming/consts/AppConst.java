@@ -37,4 +37,16 @@ public class AppConst {
 	
 	// about
 	public static final int MENU_ABOUT = 3;
+	
+	/**
+	 * 应用程序CODE
+	 */
+	// 通知 INFO
+	public static final String CODE_INFO = "101";
+	
+	// 警告 WARING
+	public static final String CODE_WARING = "201";
+	
+	// 异常 EXCEPTION
+	public static final String CODE_EXCEPTION = "401";
 }
