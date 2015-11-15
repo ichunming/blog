@@ -35,28 +35,28 @@ public class PostService implements IPostService {
 	 * return: int
 	 */
 	@Override
-	public int findTotalNumber() {
+	public int findTotalNumber(String recommend) {
 		// 文章总条数
-		return postDao.getTotalNumber();
+		return postDao.getTotalNumber(recommend);
 	}
 
 	/**
 	 * 根据ID取得当前文章及其前后
 	 * parameter: id 文章ID
-	 * return: post
+	 * return: List<post>
 	 */
 	@Override
-	public List<Post> findPostsById(int id) {
-		return postDao.getPostsById(id);
+	public List<Post> findPostsById(int id, String recommend) {
+		return postDao.getPostsById(id, recommend);
 	}
 
 	/**
-	 * 根据ID取得推荐文章及其前后
-	 * parameter: id 文章ID
-	 * return: post
+	 * 根据Tag取得文章
+	 * parameter: tag 文章所属Tag
+	 * return: List<post>
 	 */
 	@Override
-	public List<Post> findRecommendPostsById(int id) {
-		return postDao.getRecommendPostsById(id);
+	public List<Post> findPostsByTag(int tagId) {
+		return postDao.getPostsByTag(tagId);
 	}
 }

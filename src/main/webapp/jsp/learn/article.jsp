@@ -9,9 +9,9 @@
 	<div class="container">
 		<section class="col-lg-8">
 			<!-- warning -->
-			<c:if test="${error != null }">
+			<c:if test="${info != null }">
 				<div class="alert alert-warning" role="alert">
-					<c:out value="${error.message }" />
+					<c:out value="${info.message }" />
 				</div>
 			</c:if>
 			
@@ -26,7 +26,7 @@
 					<div class="post-head">
 						<h2 class="post-title"><c:out value="${article.post.title }" /></h2>
 						<div class="post-meta">
-	        				<span class="author">&bull;&nbsp;<c:out value="${article.post.dateTime }" />&nbsp;&nbsp;|&nbsp;&nbsp;<c:out value="${article.post.author }" /></span>
+	        				<span class="author">&bull;<c:out value="${article.post.dateTime }" />&nbsp;|&nbsp;<c:out value="${article.post.author }" /></span>
 						</div>
 					</div>
 					<div class="post-content">
@@ -48,10 +48,10 @@
 							<div class="sold-line"></div>
 							<div class="pre-next">
 								<c:if test="${article.preId != null }">
-									<p><span class="glyphicon glyphicon-chevron-up"></span><a title="上一篇" href="${appPath }/learn/article?postId=${article.preId }"><c:out value="${article.preTitle }" /></a></p>
+									<p><span class="glyphicon glyphicon-chevron-up"></span><a title="上一篇" href="${appPath }/learn/article.sp?postId=${article.preId }&recommend=${recommend }"><c:out value="${article.preTitle }" /></a></p>
 								</c:if>
 								<c:if test="${article.nextId != null }">
-									<p><span class="glyphicon glyphicon-chevron-down"></span><a title="下一篇" href="${appPath }/learn/article?postId=${article.nextId }"><c:out value="${article.nextTitle }" /></a></p>
+									<p><span class="glyphicon glyphicon-chevron-down"></span><a title="下一篇" href="${appPath }/learn/article.sp?postId=${article.nextId }&recommend=${recommend }"><c:out value="${article.nextTitle }" /></a></p>
 								</c:if>
 							</div>
 						</c:if>

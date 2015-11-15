@@ -8,6 +8,13 @@
 	<!-- 主体 -->
 	<div class="container">
 		<section class="col-lg-8">
+			<!-- information -->
+			<c:if test="${info != null }">
+				<div class="alert alert-info" role="alert">
+					<c:out value="${info.message }" />
+				</div>
+			</c:if>
+			
 			<!-- article -->
 			<c:forEach var="post" items="${requestScope.postList }">
 				<article class="post">

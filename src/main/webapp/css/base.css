@@ -302,6 +302,11 @@ a img {
   border: 1px solid #009933;
   text-decoration: none;
 }
+.post .tag-cloud .current {
+	color: #ffffff;
+	background: #009933;
+}
+
 /*====================================================
 	.widget .news a,
 	.widget .part-life a

@@ -13,5 +13,6 @@
   <select id="getAllTags" resultMap="TagResult">
 	SELECT a.ID TAG_ID,a.CONTENT TAG_CONTENT
 	FROM tag a
+	ORDER BY TAG_ID DESC
   </select>
 </mapper>

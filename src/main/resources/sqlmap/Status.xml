@@ -11,8 +11,22 @@
     <result column="DATE_TIME" jdbcType="DATE" property="dateTime"/>
     <result column="NOTE" jdbcType="VARCHAR" property="note"/>
   </resultMap>
+  <!-- 取得最新动态 -->
   <select id="getNewestStatus" resultMap="StatusResult">
-  	SELECT a.ID,a.CONTENT,DATE_FORMAT(MAX(a.DATE_TIME), '%Y-%m-%d %k:%i'),a.NOTE
-	FROM status a;
+  	SELECT MAX(a.ID),a.CONTENT
+	FROM status a
+  </select>
+  
+  <!-- 取得总件数 -->
+  <select id="getTotalNumber" resultType="java.lang.Integer">
+  	SELECT COUNT(1)
+	FROM status a
+  </select>
+  
+  <!-- 取得分页动态 -->
+  <select id="getStatuses" parameterType="com.ichunming.entity.Page" resultMap="StatusResult">
+  	SELECT a.ID,a.CONTENT,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d %k:%i') DATE_TIME,a.NOTE
+	FROM status a
+	ORDER BY ID DESC LIMIT #{dbIndex},#{dbNumber}
   </select>
 </mapper>

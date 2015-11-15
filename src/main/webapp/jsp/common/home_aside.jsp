@@ -4,14 +4,14 @@
 			<c:if test="${blockManager.blockEveryday != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="${appPath }/life/everyday.sp"><c:out value="${blockManager.blockEveryday.name }" /></a>
+						<a href="${appPath }/life.sp"><c:out value="${blockManager.blockEveryday.name }" /></a>
 					</h4>
 					<div class="news">
 						<div class="news-container clearfix">
 							<div class="news-container-content">
 								<c:if test="${blockManager.blockEveryday.status != null }">
 									<p>
-										<a href="${appPath }/life/everyday.sp">
+										<a href="${appPath }/life.sp">
 											${blockManager.blockEveryday.status.content }
 										</a>
 									</p>
@@ -25,7 +25,7 @@
 			<c:if test="${blockManager.blockTags != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="${appPath }/learn/tag.sp"><c:out value="${blockManager.blockTags.name }" /></a>
+						<a href="${appPath }/learn/tagList.sp"><c:out value="${blockManager.blockTags.name }" /></a>
 					</h4>
 					<div class="content tag-cloud">
 						<c:forEach var="tag" items="${blockManager.blockTags.tagList }">

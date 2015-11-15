@@ -4,7 +4,7 @@
  */
 package com.ichunming.entity;
 
-public class CustomError {
+public class CustomInfo {
 	// error code
 	private String code;
 	// error message

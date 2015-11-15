@@ -34,9 +34,14 @@
   </select>
   
   <!-- 检索文章总件数 -->
-  <select id="getTotalNumber" resultType="Integer">
+  <select id="getTotalNumber" parameterType="java.lang.String" resultType="Integer" >
 	SELECT COUNT(1)
-    FROM post
+    FROM post a
+    <where>
+		<if test="_parameter != null and !&quot;&quot;.equals(_parameter.trim())">
+    		AND a.FEATURED = #{_parameter}
+    	</if>
+    </where>
   </select>
   
   <!-- 检索文章内容 -->
@@ -46,16 +51,35 @@
     (SELECT d.ID ID,d.FEATURED,d.TITLE,d.DATE_TIME,d.AUTHOR,d.INTRODUCE,CASE d.ID WHEN #{id, jdbcType=INTEGER} THEN d.CONTENT ELSE NULL END CONTENT
     FROM post d 
     <where>
-    	d.ID = #{id, jdbcType=INTEGER}
-		OR d.ID = (SELECT ID FROM post f WHERE f.ID &lt; #{id, jdbcType=INTEGER} ORDER BY f.ID DESC LIMIT 0,1)
-    	OR d.ID = (SELECT ID FROM post g WHERE g.ID &gt; #{id, jdbcType=INTEGER} ORDER BY g.ID LIMIT 0,1)
-    	<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
-    		AND d.FEATURED = #{featured, jdbcType=CHAR}
-    	</if>
+    	d.ID = (SELECT ID FROM post h WHERE h.ID = #{id, jdbcType=INTEGER}
+					<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
+			    		AND h.FEATURED = #{featured, jdbcType=CHAR}
+			    	</if>
+					)
+		OR d.ID = (SELECT MAX(ID) FROM post f WHERE f.ID &lt; #{id, jdbcType=INTEGER}
+					<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
+			    		AND f.FEATURED = #{featured, jdbcType=CHAR}
+			    	</if>
+					)
+    	OR d.ID = (SELECT MIN(ID) FROM post g WHERE g.ID &gt; #{id, jdbcType=INTEGER}
+					<if test="featured != null and !&quot;&quot;.equals(featured.trim())">
+			    		AND g.FEATURED = #{featured, jdbcType=CHAR}
+			    	</if>
+    				)
     </where>
     ) a
     LEFT JOIN post_tag e ON a.ID = e.POST_ID
     LEFT JOIN tag b ON e.TAG_ID = b.ID
+    ORDER BY ID DESC
+  </select>
+  
+  <!-- 根据Tag检索文章 -->
+  <select id="getPostsByTag" parameterType="java.lang.Integer" resultMap="PostResult">
+	SELECT a.ID ID,a.FEATURED,a.TITLE,DATE_FORMAT(a.DATE_TIME, '%Y-%m-%d') DATE_TIME,a.AUTHOR,a.INTRODUCE
+    FROM post a
+	INNER JOIN 
+    	(SELECT POST_ID, TAG_ID FROM post_tag c WHERE c.TAG_ID = #{_parameter}) e 
+    ON a.ID = e.POST_ID
     ORDER BY ID DESC
   </select>
 </mapper>

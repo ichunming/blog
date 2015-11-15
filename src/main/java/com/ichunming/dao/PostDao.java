@@ -38,33 +38,30 @@ public class PostDao implements IPostDao {
 	 * return: int
 	 */
 	@Override
-	public int getTotalNumber() {
-		return sqlSessionTemplate.selectOne("getTotalNumber");
+	public int getTotalNumber(String featured) {
+		return sqlSessionTemplate.selectOne("com.ichunming.dao.IPost.getTotalNumber", featured);
 	}
 
 	/**
 	 * 根据ID取得当前文章及其前后
 	 * parameter: id 文章ID
-	 * return: post
+	 * return: List<post>
 	 */
 	@Override
-	public List<Post> getPostsById(int id) {
+	public List<Post> getPostsById(int id, String featured) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", id);
-		map.put("featured", null);
+		map.put("featured", featured);
 		return sqlSessionTemplate.selectList("getPostsById", map);
 	}
 
 	/**
-	 * 根据ID取得当前推荐文章及其前后
-	 * parameter: id 文章ID
-	 * return: post
+	 * 根据Tag取得文章
+	 * parameter: tag 文章所属Tag
+	 * return: List<post>
 	 */
 	@Override
-	public List<Post> getRecommendPostsById(int id) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("id", id);
-		map.put("featured", "1");
-		return sqlSessionTemplate.selectList("getPostsById", map);
+	public List<Post> getPostsByTag(int tagId) {
+		return sqlSessionTemplate.selectList("getPostsByTag", tagId);
 	}
 }

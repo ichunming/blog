@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ichunming.bean.Post;
+import com.ichunming.common.MessageManager;
 import com.ichunming.consts.BizConst;
+import com.ichunming.entity.CustomInfo;
 import com.ichunming.entity.Page;
 import com.ichunming.iservice.IPostService;
 
@@ -27,7 +29,7 @@ public class HomeController {
 		// 分页对象
 		Page page = new Page();
 		// 文章总条数
-		page.setTotalNumber(homeService.findTotalNumber());
+		page.setTotalNumber(homeService.findTotalNumber(null));
 		// 当前页数
 		page.setCurrentPage(1);
 		// 每页数量
@@ -37,6 +39,14 @@ public class HomeController {
 		
 		// 取得文章
 		List<Post> postList = homeService.findPosts(page);
+		
+		// result check
+		if(null == postList || postList.size() < 1) {
+			// 信息
+			CustomInfo info = MessageManager.findWarnMsg("IHO001");
+			model.addAttribute("info", info);
+		}
+		
 		// 保存取得结果
 		model.addAttribute(postList);
 		// 返回页面

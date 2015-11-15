@@ -1,10 +1,13 @@
 package com.ichunming.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ichunming.bean.Status;
 import com.ichunming.consts.BizConst;
+import com.ichunming.entity.Page;
 import com.ichunming.idao.IStatusDao;
 import com.ichunming.iservice.IStatusService;
 
@@ -48,5 +51,24 @@ public class StatusService implements IStatusService {
 			posfix = "...";
 		}
 		status.setContent(content.substring(0, endIndex) + posfix);
+	}
+
+	/**
+	 * 取得Status
+	 * parameter: page 分页对象
+	 * return: List<Status>
+	 */
+	@Override
+	public List<Status> findStatuses(Page page) {
+		return statusDao.getStatuses(page);
+	}
+
+	/**
+	 * 取得总件数
+	 * return: int
+	 */
+	@Override
+	public int findTotalNumber() {
+		return statusDao.getTotalNumber();
 	}
 }

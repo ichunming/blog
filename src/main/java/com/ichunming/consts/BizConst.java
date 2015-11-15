@@ -12,7 +12,7 @@ public class BizConst {
 	// home模块每页文章数
 	public static final int HOME_PAGE_POST_COUNT = 5;
 	
-	// 推荐文章
+	// 推荐Flg
 	public static final String POST_TYPE_FEATURED = "1";
 	
 	// 推荐阅读文章数
@@ -23,4 +23,7 @@ public class BizConst {
 
 	// 最新动态Block内容文字长度
 	public static final int BLOCK_EVERYDAY_CONTENT_LENGTH = 50;
+	
+	// Status每页条数
+	public static final int STATUS_PAGE_COUNT = 15;
 }

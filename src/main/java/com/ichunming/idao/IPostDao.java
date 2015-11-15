@@ -14,14 +14,14 @@ import com.ichunming.entity.Page;
 @Service
 public interface IPostDao {
 	// 取得文章总条数
-	public int getTotalNumber();
+	public int getTotalNumber(String featured);
 	
 	// 取得分页文章
 	public List<Post> getPosts(Page page);
 	
 	// 根据ID取得当前文章及其前后
-	public List<Post> getPostsById(int id);
+	public List<Post> getPostsById(int id, String featured);
 	
-	// 根据ID取得当前推荐文章及前后
-	public List<Post> getRecommendPostsById(int id);
+	// 根据Tag取得文章
+	public List<Post> getPostsByTag(int tagId);
 }

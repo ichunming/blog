@@ -4,12 +4,12 @@
 			<c:if test="${blockManager.blockRecommend != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="${appPath }/learn/recommendList.sp"><c:out value="${blockManager.blockRecommend.name }" /></a>
+						<a href="${appPath }/learn.sp?recommend=1"><c:out value="${blockManager.blockRecommend.name }" /></a>
 					</h4>
 					<div class="content">
 						<c:forEach var="post" items="${blockManager.blockRecommend.postList }">
 							<p>
-								<a href="${appPath }/learn/article.sp?postId=${post.id }">
+								<a href="${appPath }/learn/article.sp?postId=${post.id }&recommend=1">
 									<c:out value="${post.title }"></c:out>
 								</a>
 							</p>
@@ -21,7 +21,7 @@
 			<c:if test="${blockManager.blockDownload != null && blockManager.blockDownload.downloadList != null }">
 				<div class="widget">
 					<h4 class="title">
-						<a href="${appPath }/learn/downloadList.sp"><c:out value="${blockManager.blockDownload.name }" /></a>
+						<a href="${appPath }/learn/download.sp"><c:out value="${blockManager.blockDownload.name }" /></a>
 					</h4>
 					<div class="content">
 						<c:forEach var="download" items="${blockManager.blockDownload.downloadList }">
