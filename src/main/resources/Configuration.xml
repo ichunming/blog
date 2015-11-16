@@ -9,6 +9,7 @@
     <typeAlias alias="Tag" type="com.ichunming.bean.Tag"/>
     <typeAlias alias="Status" type="com.ichunming.bean.Status"/>
     <typeAlias alias="Download" type="com.ichunming.bean.Download"/>
+    <typeAlias alias="About" type="com.ichunming.bean.About"/>
   </typeAliases>
   
   <mappers>
@@ -16,6 +17,7 @@
     <mapper resource="sqlmap/Tag.xml"/>
     <mapper resource="sqlmap/Status.xml"/>
     <mapper resource="sqlmap/Download.xml"/>
+    <mapper resource="sqlmap/About.xml"/>
   </mappers>
 
 </configuration>

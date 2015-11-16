@@ -6,7 +6,7 @@
 <html lang="zh-CN">
 <body>
 	<!-- 主体 -->
-	<div class="container">
+	<div class="container body-contain">
 		<section class="col-lg-8">
 			<!-- information -->
 			<c:if test="${info != null }">

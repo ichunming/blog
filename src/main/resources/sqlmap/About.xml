@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ichunming.dao.IAbout">
+
+  <resultMap type="About" id="AboutResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+    <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+    <result column="DISPLAY_ORDER" jdbcType="VARCHAR" property="displayOrder"/>
+    <result column="DATE_TIME" jdbcType="DATE" property="dateTime"/>
+  </resultMap>
+  
+  <!-- 取得所有about-->
+  <select id="getAllAbouts" resultMap="AboutResult">
+  	SELECT a.ID,a.TITLE,a.CONTENT,a.DISPLAY_ORDER
+	FROM about a
+	ORDER BY DISPLAY_ORDER
+  </select>
+</mapper>

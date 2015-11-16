@@ -6,7 +6,7 @@
 <html lang="zh-CN">
 <body>
 	<!-- 主体 -->
-	<div class="container life-everyday">
+	<div class="container life-everyday body-contain">
 		<!-- warning -->
 		<c:if test="${info != null }">
 			<div class="alert alert-warning" role="alert">
