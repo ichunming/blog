@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		<aside class="col-lg-4">
-			<c:if test="${blockManager.blockRecommend != null }">
+			<c:if test="${blockManager.blockRecommend != null && blockManager.blockRecommend.postList != null }">
 				<div class="widget">
 					<h4 class="title">
 						<a href="${appPath }/learn.sp?recommend=1"><c:out value="${blockManager.blockRecommend.name }" /></a>
@@ -35,7 +35,7 @@
 				</div>
 			</c:if>
 			
-			<c:if test="${blockManager.blockTags != null }">
+			<c:if test="${blockManager.blockTags != null && blockManager.blockTags.tagList != null }">
 				<div class="widget">
 					<h4 class="title">
 						<a href="${appPath }/learn/tagList.sp"><c:out value="${blockManager.blockTags.name }" /></a>

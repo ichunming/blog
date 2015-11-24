@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <footer class="footer">
 	<div class="container">
-		<span>Design by ChunMing</span> | <span><a href="#"
-			target="_blank">京ICP备11008151号</a></span>
+		<span>Developed by ChunMing</span> | <span><a href="#"
+			target="_blank">**********</a></span>
 	</div>
 </footer>
 
 <script type="text/javascript"
 	src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="/blog/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>

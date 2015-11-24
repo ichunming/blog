@@ -12,6 +12,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -41,6 +43,7 @@ import com.ichunming.util.XMLUtil;
 public class startupListener implements ServletContextListener {
 
 	 WebApplicationContext  webApplicationContext = null;
+	 Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
      * Default constructor. 
      */
@@ -50,7 +53,7 @@ public class startupListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent servletcontextevent) {
-    	System.out.println("应用程序启动...");
+    	logger.info("应用程序启动...");
     	// 获取应用程序上下文
     	webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletcontextevent.getServletContext());
     	String appPath = webApplicationContext.getServletContext().getContextPath();
@@ -59,7 +62,6 @@ public class startupListener implements ServletContextListener {
     	List<Menu> menuList = xmlUtil.loadXML(this.getClass().getClassLoader().getResource("menu.xml").getPath(), Menu.class);
     	MenuManager menuManager = new MenuManager();
     	menuManager.setMenuList(menuList);
-    	menuManager.setCurrentNav(AppConst.MENU_INDEX);
     	    	
     	// load block
     	List<Block> blockList = xmlUtil.loadXML(this.getClass().getClassLoader().getResource("block.xml").getPath(), Block.class);
@@ -81,6 +83,9 @@ public class startupListener implements ServletContextListener {
     	
     	// load message
     	MessageManager.loadMessage(this.getClass().getClassLoader().getResource("message.properties").getPath());
+		
+		// success
+		logger.info("应用程序启动成功!");
     }
     
     /**
@@ -91,15 +96,19 @@ public class startupListener implements ServletContextListener {
     		// 最新动态模块
     		IStatusService statusService = webApplicationContext.getBean(IStatusService.class);
     		Status status = statusService.findNewestStatus();
-    		statusService.procContent(status);
-    		block.setStatus(status);
-    		
+    		if(null != status) {
+        		statusService.procContent(status);
+        		block.setStatus(status);
+        		logger.info("最新动态模块加载完毕！");
+    		}
     	}else if(AppConst.BLOCK_TAGS.equals(block.getType())) {
     		// 标签库模块
     		ITagService tagService = webApplicationContext.getBean(ITagService.class);
     		List<Tag> tagList = tagService.findAllTags();
-    		block.setTagList(tagList);
-    		
+    		if(null != tagList && tagList.size() > 0) {
+    			block.setTagList(tagList);
+    			logger.info("标签库模块加载完毕！");
+    		}
     	}else if(AppConst.BLOCK_RECOMMEND.equals(block.getType())) {
     		// 推荐阅读模块
     		IPostService postService = webApplicationContext.getBean(IPostService.class);
@@ -109,13 +118,18 @@ public class startupListener implements ServletContextListener {
     		// 推荐阅读文章
     		page.setFeatured(BizConst.POST_TYPE_FEATURED);
     		List<Post> postList = postService.findPosts(page);
-    		block.setPostList(postList);
-    		
+    		if(null != postList && postList.size() > 0) {
+    			block.setPostList(postList);
+    			logger.info("推荐阅读模块加载完毕！");
+    		}
     	}else if(AppConst.BLOCK_DOWNLOAD.equals(block.getType())) {
     		// 下载专区模块
     		IDownloadService downloadService = webApplicationContext.getBean(IDownloadService.class);
     		List<Download> downloadList = downloadService.findNewestDownloadList(BizConst.DOWNLOAD_LIST_COUNT);
-    		block.setDownloadList(downloadList);
+    		if(null != downloadList && downloadList.size() > 0) {
+    			block.setDownloadList(downloadList);
+    			logger.info("下载专区模块加载完毕！");
+    		}
     	}
     }
     
@@ -123,7 +137,7 @@ public class startupListener implements ServletContextListener {
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent servletcontextevent) {
-    	System.out.println("应用程序关闭...");
+    	logger.info("应用程序关闭...");
     }
 	
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		<aside class="col-lg-4">
-			<c:if test="${blockManager.blockEveryday != null }">
+			<c:if test="${blockManager.blockEveryday != null && blockManager.blockEveryday.status != null }">
 				<div class="widget">
 					<h4 class="title">
 						<a href="${appPath }/life.sp"><c:out value="${blockManager.blockEveryday.name }" /></a>
@@ -9,20 +9,18 @@
 					<div class="news">
 						<div class="news-container clearfix">
 							<div class="news-container-content">
-								<c:if test="${blockManager.blockEveryday.status != null }">
-									<p>
-										<a href="${appPath }/life.sp">
-											${blockManager.blockEveryday.status.content }
-										</a>
-									</p>
-								</c:if>
+								<p>
+									<a href="${appPath }/life.sp">
+										${blockManager.blockEveryday.status.content }
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</c:if>
 
-			<c:if test="${blockManager.blockTags != null }">
+			<c:if test="${blockManager.blockTags != null && blockManager.blockTags.tagList != null }">
 				<div class="widget">
 					<h4 class="title">
 						<a href="${appPath }/learn/tagList.sp"><c:out value="${blockManager.blockTags.name }" /></a>

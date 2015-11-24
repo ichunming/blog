@@ -604,3 +604,29 @@ a img {
 .body-contain {
 	padding-bottom: 36px;
 }
+
+.page-503,
+.page-404 {
+	line-height: 40px;
+	font-size: 36px;
+	font-weight: bold;
+}
+.thanks {
+	clear: both;
+	float: left; 
+	padding:10px;
+}
+.thanks a {
+  border: 1px solid #ebebeb;
+  padding: 2px 7px;
+  line-height: 1.5em;
+  display: inline-block;
+  margin: 0 7px 7px 0;
+  -webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+}
+.thanks a:hover {
+  border: 1px solid #009933;
+  text-decoration: none;
+}

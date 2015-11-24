@@ -24,7 +24,7 @@
 			<ul class="menu">
 				<c:forEach var="menu" items="${menuManager.menuList }" varStatus="s">
 					<c:choose>
-						<c:when test="${menuManager.currentNav == s.index }">
+						<c:when test="${currentNav == s.index }">
 							<li role="presentation" class="nav-current"><a href="${menu.href }">${menu.name }</a></li>
 						</c:when>
 						<c:otherwise>

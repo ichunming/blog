@@ -32,25 +32,27 @@ public class StatusService implements IStatusService {
 	 */
 	@Override
 	public void procContent(Status status) {
-		// posfix
-		String posfix = "";
-		// content
-		String content = status.getContent();
-		// 开始Index
-		int startIndex = 0;
-		// 总长度
-		int length = content.length();
-		// 结束Index
-		int endIndex = length;
-		if (content.indexOf("<img") >= 0) {
-			startIndex = content.indexOf("/>") + 2;
+		if(null != status) {
+			// posfix
+			String posfix = "";
+			// content
+			String content = status.getContent();
+			// 开始Index
+			int startIndex = 0;
+			// 总长度
+			int length = content.length();
+			// 结束Index
+			int endIndex = length;
+			if (content.indexOf("<img") >= 0) {
+				startIndex = content.indexOf("/>") + 2;
+			}
+			
+			if (length - startIndex > BizConst.BLOCK_EVERYDAY_CONTENT_LENGTH) {
+				endIndex = BizConst.BLOCK_EVERYDAY_CONTENT_LENGTH + startIndex - 3;
+				posfix = "...";
+			}
+			status.setContent(content.substring(0, endIndex) + posfix);
 		}
-		
-		if (length - startIndex > BizConst.BLOCK_EVERYDAY_CONTENT_LENGTH) {
-			endIndex = BizConst.BLOCK_EVERYDAY_CONTENT_LENGTH + startIndex - 3;
-			posfix = "...";
-		}
-		status.setContent(content.substring(0, endIndex) + posfix);
 	}
 
 	/**

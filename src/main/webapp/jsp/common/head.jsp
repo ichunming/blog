@@ -6,9 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>春明の博客</title>
 
+<!-- icon -->
+<link rel="shortcut icon" href="/img/app_icon.ico" type="image/x-icon" />
 <!-- Bootstrap -->
-<link rel="stylesheet" href="/blog/css/bootstrap.min.css">
-<link rel="stylesheet" href="/blog/css/base.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/base.css">
 <!--[if lt IE 9]>
 	<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>

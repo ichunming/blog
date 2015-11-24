@@ -2,22 +2,22 @@
 <root>
 	<menu>
 		<name>首页</name>
-		<href>/blog/home.sp</href>
+		<href>/home.sp</href>
 	</menu>
 	<menu>
 		<name>学无止境</name>
-		<href>/blog/learn.sp</href>
+		<href>/learn.sp</href>
 	</menu>
 	<menu>
 		<name>碎生活</name>
-		<href>/blog/life.sp</href>
+		<href>/life.sp</href>
 	</menu>
 	<menu_bk>
 		<name>自定义</name>
-		<href>/blog/custom.sp</href>
+		<href>/custom.sp</href>
 	</menu_bk>
 	<menu>
 		<name>关于我</name>
-		<href>/blog/about.sp</href>
+		<href>/about.sp</href>
 	</menu>
 </root>

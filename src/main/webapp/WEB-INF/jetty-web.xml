@@ -9,5 +9,5 @@ org.eclipse.jetty.servlet.WebApplicationContext object
 -->
 
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
-  <Set name="contextPath">/blog</Set>
+  <Set name="contextPath">/</Set>
 </Configure>

@@ -9,7 +9,7 @@
 	<div class="container life-everyday body-contain">
 		<!-- warning -->
 		<c:if test="${info != null }">
-			<div class="alert alert-warning" role="alert">
+			<div class="alert alert-info" role="alert">
 				<c:out value="${info.message }" />
 			</div>
 		</c:if>

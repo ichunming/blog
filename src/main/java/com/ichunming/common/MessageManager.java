@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ichunming.consts.AppConst;
 import com.ichunming.entity.CustomInfo;
 
@@ -23,7 +26,7 @@ public class MessageManager {
 	
 	// load message
 	public static void loadMessage(String messagePath) {
-		
+		Logger logger = LoggerFactory.getLogger("MessageManager");
 		Properties prop = new Properties();
 		InputStream is = null;
 		String loadSuccess = "message load success!";
@@ -43,14 +46,14 @@ public class MessageManager {
 				messageMap.put(key, prop.getProperty(key));
 			}
 			// print status
-			System.out.println(loadSuccess);
+			logger.info(loadSuccess);
 		} catch (FileNotFoundException e) {
 			// print status
-			System.out.println(loadError);
+			logger.error(loadError);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// print status
-			System.out.println(loadError);
+			logger.error(loadError);
 			e.printStackTrace();
 		} finally {
 			if(null != is) {
@@ -58,7 +61,7 @@ public class MessageManager {
 					is.close();
 				} catch (IOException e) {
 					// print status
-					System.out.println(loadError);
+					logger.error(loadError);
 					e.printStackTrace();
 				}
 			}
