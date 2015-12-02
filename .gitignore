@@ -5,4 +5,4 @@ note/
 #ºöÂÔtargetÄ¿Â¼
 target/
 #ºöÂÔjdbc
-src/main/resources/jdbc.properties
+*.properties
