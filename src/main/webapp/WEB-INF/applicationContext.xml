@@ -22,6 +22,7 @@
 	<!-- 配置要扫描的包 -->
 	<context:component-scan base-package="com.ichunming.dao" />
 	<context:component-scan base-package="com.ichunming.service" />
+	<context:component-scan base-package="com.ichunming.util" />
 	
 	<!-- 加载 jdbc.properties 配置文件 -->  
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
