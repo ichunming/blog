@@ -4,3 +4,5 @@
 note/
 #ºöÂÔtargetÄ¿Â¼
 target/
+#ºöÂÔjdbc
+jdbc.properties
