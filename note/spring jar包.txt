@@ -1,6 +1,0 @@
-核心jar包：
-spring-core，spring-context，spring-beans，spring-expression，spring-web
-结合持久层框架：
-spring-orm，持久层jar，与持久层整合的jar
-事务控制：
-spring-aop，spring-tx，aspectjweaver

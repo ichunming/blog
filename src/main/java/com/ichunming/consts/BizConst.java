@@ -22,7 +22,7 @@ public class BizConst {
 	public static final int DOWNLOAD_LIST_COUNT = 5;
 
 	// 最新动态Block内容文字长度
-	public static final int BLOCK_EVERYDAY_CONTENT_LENGTH = 50;
+	public static final int BLOCK_EVERYDAY_CONTENT_LENGTH = 30;
 	
 	// Status每页条数
 	public static final int STATUS_PAGE_COUNT = 15;

@@ -10,7 +10,7 @@ html,body {
 	line-height: 1em;
 	background: #ebebeb;
 	position: relative;
-	font-family: "MicrosoftYaHei", sans-serif;
+	font-family: "Microsoft YaHei", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Georgia", sans-serif;
 }
 h1,
 h2,
@@ -31,6 +31,7 @@ h3 {
   font-size: 2em;
 }
 h4 {
+  margin-top: 25px;
   font-size: 1.5em;
 }
 h5 {
@@ -124,14 +125,14 @@ a img {
 /*=======post-content=======*/
 .post .post-content {
   margin: 20px 0;
-  font: 400 15px/1.62 "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+  font: 400 15px/1.62 "Microsoft YaHei", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Georgia", sans-serif;
   color: #444443;
 }
 /*=======post-content-link=======*/
 .post .post-content-link {
   margin: 20px 0;
   border-top: 1px solid #ebebeb;
-  font: 400 15px/1.0 sans-serif, "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
+  font: 400 15px/1.0 "Microsoft YaHei", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Georgia", sans-serif;
   color: #444443;
 }
 /*=======post-footer=======*/

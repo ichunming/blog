@@ -37,6 +37,7 @@
 					</div>
 					<c:if test="${post.tagList != null && fn:length(post.tagList) > 0 }">
 						<footer class="post-footer clearfix">
+							<div class="sold-line"></div>
 							<div class="pull-left tag-list">
 								<span class="glyphicon glyphicon-link"></span>
 								<c:forEach var="tag" items="${post.tagList }">

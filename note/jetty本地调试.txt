@@ -1,8 +1,0 @@
-Debug As>Maven build...
-Main
-  base directory:需要调试的工程
-  goals:jetty:run
-  user setting:Resolve Workspace artifacts 选上
-Source:
-  remove default
-  add 需要调试的工程

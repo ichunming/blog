@@ -1,6 +1,0 @@
-org.springframework.beans.factory.BeanCreationException,
-Service的@Autowried 无法实例化dao组件
-情况1.Dao实现类未在Spring中注册，在Dao实现类中添加@Repository，
-Service实现类中添加@Service
-情况2.mybatis的配置文件User.xml不正确，无法实例化dao组件。xml文件中多了一个sql文
-情况3.mybatis的配置文件User.xml不正确，无法实例化dao组件。xml中的type=类的全路径，而在mybatis核心配置文件Configuration.xml中给该类配置了别名

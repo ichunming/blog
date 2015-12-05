@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <footer class="footer">
 	<div class="container">
-		<span>Developed by ChunMing</span> | <span><a href="#"
-			target="_blank">**********</a></span>
+		<span>Developed by ChunMing</span>
 	</div>
 </footer>
 
